@@ -1,0 +1,97 @@
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                            <?php 
+                                $query=mysqli_query($con,"SELECT * from user where id=3");
+                                while($a=mysqli_fetch_array($query)) {
+                            ?>
+                                <input type="hidden" id="iduser" class="form-control" name="iduser" value="<?php echo $a[0] ?>">
+                            <?php } ?>
+
+                               <table>
+                                   <tr>
+                                       <td>Nama Alumni</td>
+                                       <td>&nbsp; : &nbsp;</td>
+                                       <td><input type="text" id="nama" class="form-control" name="nama"  required></td>
+                                   </tr>
+                                   <tr>
+                                       <td>Barang Donasi</td>
+                                       <td>&nbsp; : &nbsp;</td>
+                                       <td><input type="text" id="namabarang" class="form-control" name="namabarang"  required>   </td>
+                                   </tr>
+                                   <tr>
+                                       <td>Nomor Telepon</td>
+                                       <td>&nbsp; : &nbsp;</td>
+                                       <td><input type="number" id="telepon" class="form-control" name="telepon"  required></td>
+                                   </tr>
+                                   <tr>
+                                       <td>Email</td>
+                                       <td>&nbsp; : &nbsp;</td>
+                                       <td><input type="email" id="email" class="form-control" name="email"  required></td>
+                                   </tr>
+                                   <tr>
+                                       <td>Motivasi</td>
+                                       <td>&nbsp; : &nbsp;</td>
+                                       <td><textarea rows="4" name="motivasi" class="form-control no-resize" required></textarea></td>
+                                   </tr>
+                                   <tr>
+                                       <td>Foto Barang</td>
+                                       <td>&nbsp; : &nbsp;</td>
+                                       <td> <input type="file" id="foto" class="form-control" name="foto"  required></td>
+                                   </tr>
+                                   <tr>
+                                       <td>
+                                           <?php
+                                $query=mysqli_query($con,"select * from alamat");
+                                while($a=mysqli_fetch_array($query)) {
+                                ?>
+
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <textarea rows="4" name="alamatadmin" class="form-control no-resize" readonly><?php echo $a[1] ?></textarea>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                                <br>
+                                <input type="submit" class="btn btn-primary m-t-15 waves-effect" name="simpan" value="DONASI SEKARANG">
+                                       </td>
+                                   </tr>
+                               </table>
+                    </form>
+</div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="js/jquery.localScroll.min.js"></script>
+    <script type="text/javascript" src="js/jquery-animate-css-rotate-scale.js"></script>
+    <script type="text/javascript" src="js/fastclick.min.js"></script>
+    <script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
+    <script type="text/javascript" src="js/jquery.animate-shadow-min.js"></script>    
+    <script type="text/javascript" src="js/main.js"></script>
+    <script>
+/* PRELOADER */
+
+function preloader() {
+    if (document.images) {
+        var img1 = new Image();
+
+        img1.src = "img/psd-4.jpg";
+    }
+}
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (oldonload) {
+                oldonload();
+            }
+            func();
+        }
+    }
+}
+addLoadEvent(preloader);
+
+</script>
+</body>
+</html>
